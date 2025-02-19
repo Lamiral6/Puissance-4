@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1739908771 source:c:\users\hp\desktop\esgis\deuxieme année\c av\puissance\main.c
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
