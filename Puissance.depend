@@ -1,6 +1,8 @@
 # depslib dependency file v1.0
-1739992978 source:c:\users\hp\desktop\esgis\deuxieme année\c av\puissance\main.c
+1740139193 source:c:\users\hp\desktop\esgis\deuxieme année\c av\puissance\main.c
 	<stdio.h>
 	<conio.h>
 	<windows.h>
+	<string.h>
+	<time.h>
 
