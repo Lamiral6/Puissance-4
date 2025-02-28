@@ -332,13 +332,20 @@ void init_jeu(){
              tour=random;int position1 ,position2;
             do{
                if(tour==1 && victoire!=1){
-               do{ gotoxy(8,27);printf("  %s Entre une position valide:", j1.joueur); gotoxy(38+taille,27);scanf("%d", &position1);}while(position1<0 ||position1>6);
+               do{ gotoxy(8,27);printf("  %s Entre une position valide:", j1.joueur); gotoxy(38+taille,27);scanf("%d", &position1);
+               if(position1>6){gotoxy(80,27);printf("  %s %d est une position invalide", j1.joueur ,position1); }
+                if(m.mat[0][position1]=='x' ||  m.mat[0][position1]=='o'){gotoxy(80,25);printf(" La collonne  %d est pleine ", position1);  }
+               }while(position1<0 ||position1>6 || m.mat[0][position1]=='x' ||  m.mat[0][position1]=='o');
                jouer_colonne(tour,position1);victoire=verif_gain(j1.symbole,position1);tour=2;}
 
                 if(tour==2 && victoire!=1){
-                 do{ gotoxy(8,27);printf("  %s Entre une position valide:", j2.joueur); gotoxy(38+taille,27);scanf("%d", &position2);}while(position2<0 ||position2>6);
-                 jouer_colonne(tour,position2);victoire=verif_gain(j2.symbole,position2);tour=1;}
+                 do{ gotoxy(8,27);printf("  %s Entre une position valide:", j2.joueur); gotoxy(38+taille,27);scanf("%d", &position2);
+                  if(position2>6){gotoxy(80,28);printf("  %s %d est une position invalide", j2.joueur ,position2); }
+                if(m.mat[0][position2]=='x' ||  m.mat[0][position2]=='o'){gotoxy(80,25);printf(" La collonne  %d est pleine ", position2);  }
 
+               }while(position2<0 ||position2>6 || m.mat[0][position2]=='x' ||  m.mat[0][position2]=='o');
+                 jouer_colonne(tour,position2);victoire=verif_gain(j2.symbole,position2);tour=1;}
+//A modifier ajout d'une verification si position depasse 6 Ajout d'un message qui dira si la derniere case est pleine de jouer ailleur
 
 
              }while(victoire!=1 );
@@ -346,13 +353,17 @@ void init_jeu(){
 
 
 }
-
-
+/*
+void Color(int t,int f)
+{
+	HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(H,f*16+t);
+}*/
 
 int main()
 {
-    printf("Hello world!\n");
-   grille4puissance();init_jeu();   gotoxy(6,27);
+   grille4puissance();init_jeu(); /*  gotoxy(6,27);*/
+
 
 
     return 0;
